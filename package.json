@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": " concurrently -k -n \"velite,next\" -c \"green,blue\" \"npm:velite:watch\" \"next dev --turbopack\"",
-    "build": "next build",
+    "build": "npm run velite && next build",
     "start": "next start",
     "lint": "next lint",
     "velite": "npx velite",
