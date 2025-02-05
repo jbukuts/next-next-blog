@@ -128,7 +128,7 @@ export default async function PostPage({
       <main className={`flex flex-col gap-5`}>
         <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: jsonLd }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <article className='post'>
           <Headings.H1>{post.title}</Headings.H1>
