@@ -1,0 +1,40 @@
+- title: Technology Engineer II
+  company: IBM
+  city: Charlotte
+  state: NC
+  time_range: ['05/01/2023', '10/01/2024']
+  desc:
+    - Developed interactive technical learning content for 15+ IBM software offerings as a member of IBM Build Lab, a team dedicated to helping business partners maximize the value of hybrid cloud, utilizing Juptyper Notebooks and Markdown
+    - Maintained a documentation site using React and Next.js to host hundreds of pages of learning content
+    - Established automated pipelines for continuous delivery and localization of site content, halving translation time with little need for manual intervention
+- title: Full-Stack Developer II
+  company: IBM
+  city: Raleigh
+  state: NC
+  time_range: ['05/01/2021', '05/01/2023']
+  desc:
+    - Worked in an agile environment at Red Hat Marketplace; specifically as part of the Discovery & Account squad which was responsible for 50+ customer-facing views as well as all user and account logic
+    - Extensive front-end development with React and Next.js to create customer-facing web pages
+    - Implemented and maintained new API endpoints across various microservices with large codebases using Node, Express.js, and MongoDB
+    - Joined existing business logic into a shared library, making cross-squad addition of new features simpler and reducing hundreds of lines of code redundancies
+    - Contributed 20+ components to a shared React UI repository enabling quicker implementations of new features from the product team
+- title: Intern Back-End Developer
+  company: University of South Carolina
+  city: Columbia
+  state: SC
+  time_range: ['05/01/2019', '05/01/2021']
+  desc:
+    - Collaborated with researchers on a NSF funded research project called Snowvision leveraging computer vision to classify Native American stamped pottery sherds from 3D scan data
+    - Built out back-end REST APIs to handle user authentication flow, data uploads, and batch processing of items via Java Play framework
+    - Created a batch processing pipeline using Apache Airavata, allowing processing to occur in parallel on HPC architecture for improved efficiency and scalability
+    - Designed PostgreSQL database to store user account data and keep track of the state/results of items submitted for batch processing to HPC clusters
+- title: Lab Assistant
+  company: University of South Carolina
+  city: Columbia
+  state: SC
+  time_range: ['01/01/2019', '01/01/2020']
+  desc:
+    - Conducted in-person labs on the basic concepts of Java programming
+    - Built out back-end REST APIs to handle user authentication flow, data uploads, and batch processing of items via Java Play framework
+    - Topics covered included basic syntax, OOP principles, data structures, and recursion
+    - Created slide presentations to coincide with lab guidelines provided by the professor

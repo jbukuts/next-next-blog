@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+
+.post {
+  pre {
+    @apply overflow-x-auto py-4 rounded-md mb-4 border-2 border-white/50 text-sm;
+  }
+
+  pre [data-line] {
+    @apply px-4;
+  }
+
+  section {
+    @apply space-y-6;
+  }
+
+  h2,h3,h4,h5,h6 {
+    @apply border-b-2 border-gray-500;
+
+    a {
+      all: revert;
+      @apply text-white no-underline decoration-3 hover:after:content-["#"];
+    }
+  }
+}

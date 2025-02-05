@@ -1,0 +1,32 @@
+- name: ascii-camera
+  desc: |
+    Originally created for a media arts class in college this project applies either an ASCII effect or [Floyd-Steinberg](https://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering) dithering to a camera feed.
+
+    Built using Vue 2 with the acutal visual effects being created via the creation of images with Rust and WebAssembly.
+- name: markdown-translate
+  desc: |
+    A CLI tool I wrote using Node.js to localize long-form Markdown content into other languanges. Includes some cool features like MDX support and batch translation of documents.
+- name: next-blog
+  desc: |
+    This project is the site you're looking at right now.
+
+    Built entirely using Next.js with Markdown content sourced from GitHub as a CMS as well as a PostgreSQL database for smaller content. Also leverages the newer features offered in the Next.js app directory like the use of React Server Components.
+- name: c-audio-visulizer
+  desc: |
+    A CLI tool that will visualize an input WAV file as a video of the amplitude data. Configurable to specify output resoultion, style, and framerate.
+
+    Still a work in progress and plan to expand it to have frequency visualization as well using Fourier Transforms.
+- name: useless-blobs
+  desc: |
+    Availabe as an NPM package this tool allows for the creation of organic blob-type shapes in SVG format using various parameters like smoothing, bounding box, points, etc.
+
+    I wrote a post about the process of how this works [here](/posts/build-a-blob).
+- name: infra
+  desc: |
+    Created as a means to automate the configuration of my own home server. This collection of Ansible playbooks allows some basic system configuration, sets-up and installs various docker containers, creates a samba instance, as well as configures RAID for via mdadm or zfs.
+- name: wav-parse
+  desc: |
+    Isomorphic WAV file parser for JavaScript. Designed to work both in the browser and in Node environments. Capable of parsing edge case WAV file encodings like A-law and Mu-law amplitude data. 
+- name: wav-visualizer
+  desc: |
+    WAV file amplitude visualizer that renders a video entirely in the browser. Frames are drawn via the `OffscreenCanvas` API and parallelized inside Web Workers. Final video is encoded using `ffmpeg.wasm`.

@@ -1,0 +1,8 @@
+- uni: University of South Carolina
+  degree: BS Computer Science 
+  city: Columbia
+  state: SC
+  time_range: ['08/01/2017', '05/01/2021']
+  gpa: 3.89
+  honors:
+    - Graduated Magna Cum Laude

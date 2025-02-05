@@ -1,0 +1,7 @@
+- title: 'Snowvision: Segmenting, Identifying, and Discovering Stamped Curve Patterns from Fragments of Pottery'
+  publisher: Springer
+  journal: International Journal of Computer Vision
+  date_published: 08-27-2022
+  desc: |
+    Snowvision aims to develop computer vision methods to assist archaeologists in reconstructing the designs of indigenous stamped pottery sherds more efficiently by (1) extracting curve structures stamped on pottery sherds; (2) matching sherds to known designs; (3) clustering sherds with unknown designs.
+  url: https://link.springer.com/article/10.1007/s11263-022-01669-7
