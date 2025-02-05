@@ -130,7 +130,6 @@ export default async function PostPage({
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: jsonLd }}
         />
-        {JSON.stringify(jsonLd, null, 2)}
         <article className='post'>
           <Headings.H1>{post.title}</Headings.H1>
           <p className='mb-5 font-serif'>

@@ -66,8 +66,6 @@ export const baseMetadata = {
   }
 } as const satisfies Metadata;
 
-// Object.freeze(baseMetadata);
-
 export default function createMetadata(metadata: Metadata): Metadata {
   return merge(JSON.parse(JSON.stringify(baseMetadata)), metadata);
 }
