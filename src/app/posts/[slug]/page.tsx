@@ -5,9 +5,8 @@ import NextLink from 'next/link';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
-import rehypeSectionize from '@hbsnow/rehype-sectionize';
+import rehypeSectionize from '#/lib/rehype-sectionize';
 import rehypePrettyCode from 'rehype-pretty-code';
-import './page.css';
 import CenterWrapper from '#/components/center-wrapper';
 import { ListItem, OrderedList, UnorderedList } from '#/components/ui/list';
 import remarkGfm from 'remark-gfm';
@@ -17,6 +16,7 @@ import { type Metadata } from 'next';
 import siteConfig from '../../../../site.config';
 import { BlogPosting, WithContext } from 'schema-dts';
 import { baseMetadata } from '#/lib/create-metadata';
+import './page.css';
 
 const { profile } = siteConfig;
 
@@ -70,9 +70,10 @@ export default async function PostPage({
     description: post.desc,
     datePublished: post.created,
     dateModified: post.updated,
+    timeRequired: `PT${post.readingTime}M`,
     author: {
       '@type': 'Person',
-      name: siteConfig.profile.firstName,
+      name: `${siteConfig.profile.firstName} ${siteConfig.profile.lastName}`,
       url: baseMetadata.metadataBase.toString()
     },
     mainEntityOfPage: {
@@ -131,15 +132,18 @@ export default async function PostPage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <article className='post'>
-          <Headings.H1>{post.title}</Headings.H1>
+          <Headings.H1 style={{ margin: 0 }}>{post.title}</Headings.H1>
           <p className='mb-5 font-serif'>
-            {formatDate(post.created, 'LLL d yyyy')}
+            <time dateTime={formatDate(post.created, 'yyyy-MM-dd')}>
+              {formatDate(post.created, 'LLL d yyyy')}
+            </time>
           </p>
+
           {element.content}
         </article>
 
         <nav className='grid grid-cols-2 gap-5'>
-          {[idx - 1, idx + 1].map((i) => {
+          {[idx + 1, idx - 1].map((i) => {
             const p = POST_SORTED_DESC[i];
             if (!p) return <span key={i} />;
 
@@ -147,13 +151,18 @@ export default async function PostPage({
               <NextLink
                 key={p.slug}
                 href={p.slug}
-                className='group flex flex-col rounded-lg border p-4'>
+                className='group flex flex-col rounded-lg border p-4 leading-tight'>
                 <span className='group-hover:underline'>
-                  {i < idx ? 'Previous' : 'Next'} Post
+                  {i > idx ? 'Previous' : 'Next'} Post
                 </span>
                 <span className='text-sm text-gray-300/80 group-hover:underline'>
                   {p.title}
                 </span>
+                <time
+                  className='mt-1 text-xs tracking-tighter text-blue-600 group-hover:underline'
+                  dateTime={formatDate(p.created, 'yyyy-MM-dd')}>
+                  {formatDate(p.created, 'MMM dd yy')}
+                </time>
               </NextLink>
             );
           })}

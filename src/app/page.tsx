@@ -2,7 +2,7 @@ import CenterWrapper from '#/components/center-wrapper';
 import Headings from '#/components/ui/heading';
 import { Link } from '#/components/ui/link';
 import { POST_SORTED_DESC } from '#/lib/velite';
-import { differenceInDays } from 'date-fns';
+import { differenceInDays, formatDate } from 'date-fns';
 import Image from 'next/image';
 import React from 'react';
 import siteConfig from '../../site.config';
@@ -30,27 +30,35 @@ export default async function Home() {
           const { title, excerpt, readingTime, created, slug } = p;
 
           return (
-            <section key={idx}>
-              <Headings.H2 className='text-3xl tracking-tight'>
-                <Link
-                  href={`/posts/${slug}`}
-                  className='text-foreground hover:decoration-foreground decoration-transparent decoration-solid hover:drop-shadow-[0_0_10px_var(--color-foreground)]'>
-                  {title}
-                </Link>
-              </Headings.H2>
-              <p className='mb-2 font-serif text-sm text-gray-300'>
-                {differenceInDays(Date.now(), created)} days ago, {readingTime}{' '}
-                min read
-              </p>
+            <article key={idx}>
+              <header>
+                <Headings.H2 className='text-3xl tracking-tight'>
+                  <Link
+                    href={`/posts/${slug}`}
+                    className='text-foreground hover:decoration-foreground decoration-transparent decoration-solid hover:drop-shadow-[0_0_10px_var(--color-foreground)]'>
+                    {title}
+                  </Link>
+                </Headings.H2>
+                <p className='mb-2 space-x-2 font-serif text-sm text-gray-300'>
+                  <time dateTime={formatDate(created, 'yyyy-MM-dd')}>
+                    {differenceInDays(Date.now(), created)} days ago
+                  </time>
+                  <time dateTime={`PT${readingTime}M`}>
+                    {readingTime} min read
+                  </time>
+                </p>
+              </header>
               <p className='mb-1 tracking-tight md:border-l-4 md:border-blue-600/50 md:pl-2'>
                 {excerpt}
               </p>
-              <Link
-                href={`/posts/${slug}`}
-                className='font-serif text-sm font-normal italic'>
-                read the full post
-              </Link>
-            </section>
+              <footer>
+                <Link
+                  href={`/posts/${slug}`}
+                  className='font-serif text-sm font-normal italic'>
+                  read the full post
+                </Link>
+              </footer>
+            </article>
           );
         })}
       </main>

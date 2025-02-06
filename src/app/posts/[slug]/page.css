@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 
 .post {
+  @apply space-y-6;
+
   pre {
     @apply overflow-x-auto py-4 rounded-md mb-4 border-2 border-white/50 text-sm;
   }

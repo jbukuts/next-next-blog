@@ -25,7 +25,7 @@ export const baseMetadata = {
   ),
   title: {
     template: `${siteTitle} - %s`,
-    default: siteDescription
+    default: siteTitle
   },
   description: siteDescription,
   alternates: {
@@ -36,7 +36,7 @@ export const baseMetadata = {
     siteName: siteTitle,
     title: {
       template: `${siteTitle} - %s`,
-      default: siteDescription
+      default: siteTitle
     },
     url: '/',
     locale: 'en_US',
@@ -47,7 +47,7 @@ export const baseMetadata = {
     card: 'summary',
     title: {
       template: `${siteTitle} - %s`,
-      default: siteDescription
+      default: siteTitle
     },
     description: siteDescription,
     creator: twitterHandle,
