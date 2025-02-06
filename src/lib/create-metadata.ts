@@ -5,7 +5,7 @@ import siteConfig from '../../site.config';
 const {
   PORT = 3000,
   NODE_ENV,
-  VERCEL_URL,
+  VERCEL_PROJECT_PRODUCTION_URL,
   NEXT_PUBLIC_BASE_PATH = ''
 } = process.env;
 const IS_DEV = NODE_ENV === 'development';
@@ -21,7 +21,7 @@ export const baseMetadata = {
   metadataBase: new URL(
     IS_DEV
       ? `http://localhost:${PORT}`
-      : `https://${VERCEL_URL}${NEXT_PUBLIC_BASE_PATH}`
+      : `https://${VERCEL_PROJECT_PRODUCTION_URL}${NEXT_PUBLIC_BASE_PATH}`
   ),
   title: {
     template: `${siteTitle} - %s`,

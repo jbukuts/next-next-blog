@@ -14,6 +14,8 @@ Features:
 - SEO Metadata (OpenGraph/Twitter)
 - RSS supported
 - Sitemap supported
+- Linting for MDX content 
+- MDX support
 
 ## Getting Started
 
