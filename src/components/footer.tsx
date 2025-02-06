@@ -8,7 +8,6 @@ import {
   Rss,
   SquareCode
 } from 'lucide-react';
-import { cn } from '#/lib/utils';
 import { Link } from './ui/link';
 import siteConfig from '../../site.config';
 
@@ -69,15 +68,12 @@ function IconLink(
     children: React.ReactElement<LucideIcon>;
   }
 ) {
-  const { children, className, ...rest } = props;
+  const { children, ...rest } = props;
 
   return (
     <a
       {...rest}
-      className={cn(
-        'box-content rounded-md border-2 border-transparent p-1.5 transition-all hover:cursor-pointer hover:border-blue-500/50 hover:text-blue-500 hover:drop-shadow-[0_0_10px_var(--color-blue-500)] [&>*]:opacity-85 hover:[&>*]:opacity-100',
-        className
-      )}>
+      className='box-content rounded-md border-2 border-transparent p-1.5 transition-all hover:cursor-pointer hover:border-blue-500/50 hover:text-blue-500 hover:drop-shadow-[0_0_10px_var(--color-blue-500)] [&>*]:opacity-85 hover:[&>*]:opacity-100'>
       {children}
     </a>
   );

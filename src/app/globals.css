@@ -1,5 +1,6 @@
 @import 'tailwindcss';
-@plugin "tailwindcss-animate";
+@plugin 'tailwindcss-animate';
+@plugin "@tailwindcss/typography";
 
 @theme {
   --color-background: var(--background);
@@ -7,11 +8,6 @@
   --font-jetbrains-mono: var(--font-jetbrains-mono);
   --font-pixel-serif: var(--font-pixel-serif);
   --color-primary: var(--color-blue-600);
-}
-
-:root {
-  --background: #0a0a0a;
-    --foreground: #ededed;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -29,6 +25,11 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+
   *,
   ::after,
   ::before,

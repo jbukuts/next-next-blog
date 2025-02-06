@@ -38,6 +38,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4.0.0",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/eslint__eslintrc": "^2.1.2",
     "@types/lodash": "^4.17.15",
     "@types/node": "^20",

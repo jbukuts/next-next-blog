@@ -16,7 +16,6 @@ import { type Metadata } from 'next';
 import siteConfig from '../../../../site.config';
 import { BlogPosting, WithContext } from 'schema-dts';
 import { baseMetadata } from '#/lib/create-metadata';
-import './page.css';
 
 const { profile } = siteConfig;
 
@@ -131,7 +130,7 @@ export default async function PostPage({
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <article className='post'>
+        <article className='prose-headings:border-b-2 prose-h1:border-none prose-headings:border-gray-500 prose-headings:[&>a]:hover:drop-shadow-none prose-headings:[&>a]:text-foreground prose-headings:[&>a]:no-underline prose-headings:[&>a]:hover:after:content-["#"] space-y-6 [&_pre]:overflow-x-auto [&_pre]:rounded-md [&_pre]:border-2 [&_pre]:border-gray-500 [&_pre]:py-4 [&_pre]:text-sm [&_pre_[data-line]]:px-4 [&_section]:space-y-6'>
           <Headings.H1 style={{ margin: 0 }}>{post.title}</Headings.H1>
           <p className='mb-5 font-serif'>
             <time dateTime={formatDate(post.created, 'yyyy-MM-dd')}>
