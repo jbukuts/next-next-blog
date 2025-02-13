@@ -15,13 +15,42 @@ import {
 } from './ui/select';
 import { PaintBucket } from 'lucide-react';
 import siteConfig from '../../site.config';
+import { useEffect, useState } from 'react';
 
 const {
   profile: { firstName, lastName }
 } = siteConfig;
 
-export default function Header() {
+function ThemeSelect() {
   const { themes, theme, setTheme } = useTheme();
+
+  return (
+    <Select value={theme} onValueChange={(v) => setTheme(v)}>
+      <SelectTrigger
+        className='size-fit border-transparent p-1 focus:ring-0'
+        showIcon={false}>
+        <PaintBucket />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          <SelectLabel>Theme</SelectLabel>
+          {themes.map((t) => (
+            <SelectItem className='capitalize' key={t} value={t}>
+              {t}
+            </SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+  );
+}
+
+export default function Header() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <CenterWrapper asChild>
@@ -39,24 +68,7 @@ export default function Header() {
               />
             </NextLink>
           </h1>
-
-          <Select value={theme} onValueChange={(v) => setTheme(v)}>
-            <SelectTrigger
-              className='size-fit border-transparent p-1 focus:ring-0'
-              showIcon={false}>
-              <PaintBucket />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectLabel>Theme</SelectLabel>
-                {themes.map((t) => (
-                  <SelectItem className='capitalize' key={t} value={t}>
-                    {t}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+          {mounted && <ThemeSelect />}
         </div>
         <nav className='flex gap-2'>
           <Link href={'/'}>blog</Link>
