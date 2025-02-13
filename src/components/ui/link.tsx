@@ -1,5 +1,6 @@
 import { cn } from '#/lib/utils';
 import NextLink from 'next/link';
+import { createElement } from 'react';
 
 const ABSOLUTE_URL_REGEX = /^[a-zA-Z][a-zA-Z\d+\-.]*?:/;
 
@@ -12,14 +13,9 @@ export function Link(props: React.ComponentProps<'a'> & { href: string }) {
     className
   );
 
-  if (!isAbsolute)
-    <NextLink className={c} href={href} {...rest}>
-      {children}
-    </NextLink>;
-
-  return (
-    <a className={c} href={href} {...rest}>
-      {children}
-    </a>
+  return createElement(
+    isAbsolute ? 'a' : NextLink,
+    { className: c, href, ...rest },
+    children
   );
 }
