@@ -3,38 +3,60 @@
 import Image from 'next/image';
 import { Link } from './ui/link';
 import CenterWrapper from './center-wrapper';
-import Headings from './ui/heading';
-import { usePathname } from 'next/navigation';
 import NextLink from 'next/link';
+import { useTheme } from 'next-themes';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger
+} from './ui/select';
+import { PaintBucket } from 'lucide-react';
+import siteConfig from '../../site.config';
 
-const SLUG_MAP: Record<string, string> = {
-  '/': 'Blog',
-  '/projects': 'Projects',
-  '/work-history': 'Resume'
-};
+const {
+  profile: { firstName, lastName }
+} = siteConfig;
 
 export default function Header() {
-  const pathname = usePathname();
+  const { themes, theme, setTheme } = useTheme();
 
   return (
     <CenterWrapper asChild>
       <header className='flex flex-col'>
-        <div className='my-4 flex items-end justify-between'>
-          <NextLink href={'/'}>
-            <Image
-              src={'/name-chrome.webp'}
-              width={250}
-              height={100}
-              className='invert'
-              alt='jbukuts'
-            />
-          </NextLink>
+        <div className='my-4 flex items-start justify-between'>
+          <h1>
+            <NextLink href={'/'}>
+              <Image
+                id='header-name'
+                src={'/name-chrome.webp'}
+                width={200}
+                height={100}
+                className='w-[150px] sm:w-[200px]'
+                alt={`${firstName} ${lastName}`}
+              />
+            </NextLink>
+          </h1>
 
-          {SLUG_MAP[pathname] && (
-            <Headings.H1 className='mb-4 text-blue-600'>
-              {SLUG_MAP[pathname]}
-            </Headings.H1>
-          )}
+          <Select value={theme} onValueChange={(v) => setTheme(v)}>
+            <SelectTrigger
+              className='size-fit border-transparent p-1 focus:ring-0'
+              showIcon={false}>
+              <PaintBucket />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Theme</SelectLabel>
+                {themes.map((t) => (
+                  <SelectItem className='capitalize' key={t} value={t}>
+                    {t}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </div>
         <nav className='flex gap-2'>
           <Link href={'/'}>blog</Link>

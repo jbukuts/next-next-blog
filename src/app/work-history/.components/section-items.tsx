@@ -4,7 +4,7 @@ import { Slot } from '@radix-ui/react-slot';
 
 export function SectionTitle(props: React.ComponentProps<'h3'>) {
   const { ...rest } = props;
-  return <Headings.H2 className='mb-5 border-b border-gray-500' {...rest} />;
+  return <Headings.H2 className='border-accent mb-5 border-b' {...rest} />;
 }
 
 export function SectionWrapper(props: React.ComponentProps<'section'>) {
@@ -32,7 +32,7 @@ export function SectionSubHead(props: React.ComponentProps<'p'>) {
 
   return (
     <p
-      className='col-span-2 col-start-1 font-serif text-lg text-blue-600'
+      className='text-primary col-span-2 col-start-1 font-serif text-lg'
       {...rest}>
       {children}
     </p>
@@ -44,7 +44,7 @@ export function SectionInfo(props: React.ComponentProps<'p'>) {
 
   return (
     <p
-      className='col-span-2 col-start-1 row-start-3 text-sm text-gray-300 italic md:col-span-1 md:col-start-2 md:row-start-1 md:text-right'
+      className='text-accentitalic col-span-2 col-start-1 row-start-3 text-sm md:col-span-1 md:col-start-2 md:row-start-1 md:text-right'
       {...rest}>
       {children}
     </p>

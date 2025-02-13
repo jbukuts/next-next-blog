@@ -7,6 +7,9 @@ const { metadataBase } = baseMetadata;
 export const dynamic = 'error';
 export const revalidate = false;
 
+/**
+ * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const today = new Date();
 

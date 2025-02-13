@@ -8,14 +8,15 @@ Developer blog created with:
 
 Features:
 
-- Follows semantic HTML best practices
-   - Blog content wrapped in section tags per header with ARIA attributes
-- JSON-LD data included across site
-- SEO Metadata (OpenGraph/Twitter)
-- RSS supported
-- Sitemap supported
-- Linting for MDX content 
-- MDX support
+- [x] Semantic HTML usage (use of `time`, `section`, `article`, ...)
+- [x] JSON-LD metadata
+- [x] SEO Metadata (OpenGraph/Twitter)
+- [x] RSS feed generation (via `feed`)
+- [x] Sitemap generation
+- [ ] Linting for MDX content 
+- [x] MDX support (via `next-mdx-remote`)
+- [x] Multiple themes (via `next-themes`)
+- [x] Text search (via `minisearch`)
 
 ## Getting Started
 
@@ -29,7 +30,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deployment
 
-This site is designed to generate static assets on output. If this needs to be disabled see [here]()
+This site is designed to be statically hosted and as such exports static assets at build. This can be disabled in the `next.config.ts` file.
 
 
 

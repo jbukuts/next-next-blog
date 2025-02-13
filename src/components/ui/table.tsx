@@ -20,7 +20,7 @@ export function TableHead(props: React.ComponentProps<'thead'>) {
 
   return (
     <thead
-      className={cn('border-b border-gray-300 bg-white/25', className)}
+      className={cn('border-accent bg-foreground/25 border-b', className)}
       {...rest}>
       {children}
     </thead>

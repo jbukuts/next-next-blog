@@ -13,7 +13,6 @@ import siteConfig from '../../site.config';
 
 const { profile } = siteConfig;
 const CURRENT_YEAR = new Date().getFullYear();
-
 const LINKS = [
   {
     title: 'My email',
@@ -22,7 +21,7 @@ const LINKS = [
   },
   {
     title: 'Source code',
-    href: `${profile.gitHubURL}/next-blog`,
+    href: `${profile.gitHubURL}/next-next-blog`,
     icon: SquareCode
   },
   {
@@ -43,7 +42,6 @@ const LINKS = [
     fill: true
   }
 ];
-
 const BUILT_WITH = [
   {
     href: 'https://nextjs.org/docs',
@@ -73,7 +71,7 @@ function IconLink(
   return (
     <a
       {...rest}
-      className='box-content rounded-md border-2 border-transparent p-1.5 transition-all hover:cursor-pointer hover:border-blue-500/50 hover:text-blue-500 hover:drop-shadow-[0_0_10px_var(--color-blue-500)] [&>*]:opacity-85 hover:[&>*]:opacity-100'>
+      className='hover:border-primary/50 hover:text-primary box-content rounded-md border-2 border-transparent p-1.5 transition-all hover:cursor-pointer hover:drop-shadow-[0_0_10px_var(--color-primary)] [&>*]:opacity-85 hover:[&>*]:opacity-100'>
       {children}
     </a>
   );
@@ -90,7 +88,7 @@ export default function Footer() {
               width={100}
               height={100}
               alt='me'
-              className='size-[100px] rounded-md border-2 border-white object-cover [image-rendering:pixelated]'
+              className='profile-image border-primary size-[100px] rounded-md border-2 object-cover [image-rendering:pixelated]'
             />
             <div className='text-center md:text-left'>
               <p className='mb-1.5 font-semibold'>It&apos;s me again</p>
@@ -126,7 +124,7 @@ export default function Footer() {
             ))}
           </nav>
           <p className='text-sm'>
-            © {CURRENT_YEAR} {profile.firstName} {profile.lastName} •
+            © 2023-{CURRENT_YEAR} {profile.firstName} {profile.lastName} •
             Over-Engineered Blog
           </p>
         </div>

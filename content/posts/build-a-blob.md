@@ -235,6 +235,3 @@ Here the initial `starting` variable represents the move `M` call that must be m
 ## Conclusion
 
 If you want to play around a bit more I made an [npm package](https://www.npmjs.com/package/useless-blobs) containing all this code as well as a [demo](https://jbukuts.github.io/useless-blobs/) you can play around with to see how the parameters affect the final result.
-
-
-

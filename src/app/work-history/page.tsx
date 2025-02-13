@@ -15,6 +15,7 @@ import {
   SectionContent,
   SectionInfo
 } from './.components/section-items';
+import { Link2 } from 'lucide-react';
 
 const SORTED_JOBS_DESC = work_history.toSorted(
   (a, b) =>
@@ -98,7 +99,7 @@ export default async function WorkHistoryPage() {
         })}
         <SectionTitle>Work History</SectionTitle>
         {SORTED_JOBS_DESC.map(async (job, idx) => {
-          const { title, company, time_range, city, state, desc } = job;
+          const { title, company, time_range, city, state, desc, urls } = job;
           const [startDate, endDate] = time_range;
 
           return (
@@ -119,6 +120,19 @@ export default async function WorkHistoryPage() {
                   ))}
                 </UnorderedList>
               </SectionContent>
+              {urls && (
+                <div className='mt-2 flex flex-col md:flex-row md:gap-3'>
+                  {urls.map(({ name, url }, idx) => (
+                    <Link
+                      key={idx}
+                      href={url}
+                      className='flex w-fit items-center gap-1'>
+                      {name}
+                      <Link2 className='size-4' />
+                    </Link>
+                  ))}
+                </div>
+              )}
             </SectionWrapper>
           );
         })}

@@ -34,7 +34,14 @@ export default defineConfig({
         city: s.string(),
         state: s.string().length(2),
         time_range: s.tuple([s.isodate(), s.union([s.isodate(), s.null()])]),
-        desc: s.string().array()
+        desc: s.string().array(),
+        urls: s
+          .object({
+            name: s.string(),
+            url: s.string().url()
+          })
+          .array()
+          .optional()
       })
     },
     publications: {

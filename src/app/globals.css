@@ -4,17 +4,12 @@
 
 @theme {
   --color-background: var(--background);
+  --color-accent: var(--accent);
   --color-foreground: var(--foreground);
   --font-jetbrains-mono: var(--font-jetbrains-mono);
   --font-pixel-serif: var(--font-pixel-serif);
-  --color-primary: var(--color-blue-600);
+  --color-primary: var(--primary);
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    
-  }
-} */
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
@@ -26,8 +21,32 @@
 */
 @layer base {
   :root {
+    --background: #ededed;
+    --accent: var(--color-gray-600);
+    --foreground: #0a0a0a;
+    --primary: var(--color-blue-600);
+  }
+
+  [data-theme='dark'] {
     --background: #0a0a0a;
+    --accent: var(--color-gray-300);
     --foreground: #ededed;
+    --primary: var(--color-blue-600);
+
+    #header-name {
+      @apply invert;
+    }
+  }
+
+  [data-theme='sticky'] {
+    --background: rgb(253, 219, 41);
+    --accent: var(--color-gray-800);
+    --foreground: var(--color-black);
+    --primary: var(--color-black);
+
+    .profile-image, #header-name {
+      @apply mix-blend-darken;
+    }
   }
 
   *,
@@ -38,14 +57,24 @@
     border-color: var(--color-gray-200, currentColor);
   }
 
+  ::selection, ::-moz-selection {
+    @apply bg-foreground/25;
+  }
+
   * {
     box-sizing: border-box;
   }
+
+  html {
+    @apply scroll-smooth;
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  body {
+    @apply text-foreground;
+  }
 }
 
-html {
-  @apply scroll-smooth;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+

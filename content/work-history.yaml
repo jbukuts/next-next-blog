@@ -7,6 +7,9 @@
     - Developed interactive technical learning content for 15+ IBM software offerings as a member of IBM Build Lab, a team dedicated to helping business partners maximize the value of hybrid cloud, utilizing Juptyper Notebooks and Markdown
     - Maintained a documentation site using React and Next.js to host hundreds of pages of learning content
     - Established automated pipelines for continuous delivery and localization of site content, halving translation time with little need for manual intervention
+  urls:
+    - name: VEST Workshops
+      url: https://vest.buildlab.cloud
 - title: Full-Stack Developer II
   company: IBM
   city: Raleigh
@@ -18,6 +21,11 @@
     - Implemented and maintained new API endpoints across various microservices with large codebases using Node, Express.js, and MongoDB
     - Joined existing business logic into a shared library, making cross-squad addition of new features simpler and reducing hundreds of lines of code redundancies
     - Contributed 20+ components to a shared React UI repository enabling quicker implementations of new features from the product team
+  urls:
+    - name: Red Hat Marketplace
+      url: https://swc.saas.ibm.com/en-us/redhat-marketplace
+    - name: IBM DSCE
+      url: https://dsce.ibm.com/
 - title: Intern Back-End Developer
   company: University of South Carolina
   city: Columbia
@@ -28,6 +36,9 @@
     - Built out back-end REST APIs to handle user authentication flow, data uploads, and batch processing of items via Java Play framework
     - Created a batch processing pipeline using Apache Airavata, allowing processing to occur in parallel on HPC architecture for improved efficiency and scalability
     - Designed PostgreSQL database to store user account data and keep track of the state/results of items submitted for batch processing to HPC clusters
+  urls:
+    - name: World Engraved
+      url: https://www.worldengraved.org/index
 - title: Lab Assistant
   company: University of South Carolina
   city: Columbia

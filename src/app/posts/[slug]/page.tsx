@@ -130,7 +130,7 @@ export default async function PostPage({
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <article className='prose-headings:border-b-2 prose-h1:border-none prose-headings:border-gray-500 prose-headings:[&>a]:hover:drop-shadow-none prose-headings:[&>a]:text-foreground prose-headings:[&>a]:no-underline prose-headings:[&>a]:hover:after:content-["#"] space-y-6 [&_pre]:overflow-x-auto [&_pre]:rounded-md [&_pre]:border-2 [&_pre]:border-gray-500 [&_pre]:py-4 [&_pre]:text-sm [&_pre_[data-line]]:px-4 [&_section]:space-y-6'>
+        <article className='prose-headings:border-b-2 prose-h1:border-none prose-headings:border-accent prose-headings:[&>a]:hover:drop-shadow-none prose-headings:[&>a]:text-foreground prose-headings:[&>a]:no-underline prose-headings:[&>a]:hover:after:content-["#"] [&_pre]:border-accent space-y-6 [&_pre]:overflow-x-auto [&_pre]:rounded-md [&_pre]:border-2 [&_pre]:py-4 [&_pre]:text-sm [&_pre_[data-line]]:px-4 [&_section]:space-y-6'>
           <Headings.H1 style={{ margin: 0 }}>{post.title}</Headings.H1>
           <p className='mb-5 font-serif'>
             <time dateTime={formatDate(post.created, 'yyyy-MM-dd')}>
@@ -150,15 +150,15 @@ export default async function PostPage({
               <NextLink
                 key={p.slug}
                 href={p.slug}
-                className='group flex flex-col rounded-lg border p-4 leading-tight'>
+                className='group border-accent flex flex-col rounded-lg border p-4 leading-tight'>
                 <span className='group-hover:underline'>
                   {i > idx ? 'Previous' : 'Next'} Post
                 </span>
-                <span className='text-sm text-gray-300/80 group-hover:underline'>
+                <span className='text-accent text-sm group-hover:underline'>
                   {p.title}
                 </span>
                 <time
-                  className='mt-1 text-xs tracking-tighter text-blue-600 group-hover:underline'
+                  className='text-primary mt-1 text-xs tracking-tighter group-hover:underline'
                   dateTime={formatDate(p.created, 'yyyy-MM-dd')}>
                   {formatDate(p.created, 'MMM dd yy')}
                 </time>

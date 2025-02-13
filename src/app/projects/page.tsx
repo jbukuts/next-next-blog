@@ -168,7 +168,7 @@ export default async function ProjectsPage() {
               <Headings.H2 className='col-span-2 col-start-1 row-start-1 text-center text-3xl tracking-tight md:col-span-1 md:text-left'>
                 {name}
               </Headings.H2>
-              <p className='col-span-2 col-start-1 text-center font-serif text-sm text-gray-300 md:col-span-1 md:text-left'>
+              <p className='text-accent col-span-2 col-start-1 text-center font-serif text-sm md:col-span-1 md:text-left'>
                 created {formatDate(createdAt, 'LLL d yyyy')}, updated{' '}
                 {formatDate(updatedAt, 'LLL d yyyy')}
               </p>
@@ -176,7 +176,7 @@ export default async function ProjectsPage() {
                 {repositoryTopics.nodes.map(({ topic }) => (
                   <span
                     key={topic.name}
-                    className='rounded-md border px-1.5 py-1 text-xs'>
+                    className='border-foreground rounded-md border px-1.5 py-1 text-xs'>
                     {topic.name}
                   </span>
                 ))}

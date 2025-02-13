@@ -16,7 +16,7 @@ export default async function Home() {
           width={200}
           height={200}
           alt='me'
-          className='col-span-2 col-start-1 mx-auto size-[125px] rounded-md border-3 border-blue-600 object-cover [image-rendering:pixelated] md:col-span-1 md:row-span-2 md:mx-0 md:size-[175px]'
+          className='profile-image border-primary col-span-2 col-start-1 mx-auto size-[125px] rounded-md border-3 object-cover [image-rendering:pixelated] md:col-span-1 md:row-span-2 md:mx-0 md:size-[175px]'
         />
         <Headings.H2 className='col-span-2 col-start-1 text-center md:col-span-1 md:col-start-2 md:row-start-1 md:text-left'>
           Hi, I&apos;m Jake
@@ -35,11 +35,11 @@ export default async function Home() {
                 <Headings.H2 className='text-3xl tracking-tight'>
                   <Link
                     href={`/posts/${slug}`}
-                    className='text-foreground hover:decoration-foreground decoration-transparent decoration-solid hover:drop-shadow-[0_0_10px_var(--color-foreground)]'>
+                    className='text-foreground no-underline'>
                     {title}
                   </Link>
                 </Headings.H2>
-                <p className='mb-2 space-x-2 font-serif text-sm text-gray-300'>
+                <p className='text-accent mb-2 space-x-2 font-serif text-sm'>
                   <time dateTime={formatDate(created, 'yyyy-MM-dd')}>
                     {differenceInDays(Date.now(), created)} days ago
                   </time>
@@ -48,9 +48,7 @@ export default async function Home() {
                   </time>
                 </p>
               </header>
-              <p className='mb-1 tracking-tight md:border-l-4 md:border-blue-600/50 md:pl-2'>
-                {excerpt}
-              </p>
+              <p className='tracking-tighter'>{excerpt}</p>
               <footer>
                 <Link
                   href={`/posts/${slug}`}
