@@ -1,18 +1,18 @@
 ---
 desc: 'Use cases for various Sass functionalities'
-tags: ["styling", "sass"]
-created: 2023-4-14
+tags: ['styling', 'sass']
+created: 2023-04-14
 ---
 
 # Sass Explorations
 
-If you've used Sass before there's no doubt you've used some of its most prominent features like nested selectors. However, within Sass, there's also a whole host of other functionalities that can help you to write maintainable styling for all your components. 
+If you've used Sass before there's no doubt you've used some of its most prominent features like nested selectors. However, within Sass, there's also a whole host of other functionalities that can help you to write maintainable styling for all your components.
 
 Here I'll cover a couple of use cases I've found in Sass that made my life just a tad bit easier.
 
 ## Simple utility classes
 
-Often when building out your site it's best to try and define your various tokens as variables in [partials](https://sass-lang.com/guide#topic-4) that can be consumed throughout all your style sheets. 
+Often when building out your site it's best to try and define your various tokens as variables in [partials](https://sass-lang.com/guide#topic-4) that can be consumed throughout all your style sheets.
 
 When you have tokens though you'll often want to create a myriad of utility classes that are based on them as well. For instance, with spacing tokens, you may want them to be defined to affect the gap in flex containers or the padding of elements.
 
@@ -20,9 +20,9 @@ So rather than defining these classes manually let's instead look at a programma
 
 ```scss
 $spacings: (
-  sm: .5rem,
+  sm: 0.5rem,
   md: 1rem,
-  lg: 2rem,
+  lg: 2rem
 );
 ```
 
@@ -38,7 +38,7 @@ Now to create a series of classes that are based on these tokens we can write a 
 }
 ```
 
-What's occurring here is that when we use our mixin we'll pass in two properties, the first being the map we want to iterate over and the second being the property to which our utility classes will apply. We iterate over each key and value pair within the map and using a [quoted string](https://sass-lang.com/documentation/interpolation#quoted-strings) we can then define the property we want to be affected in our class alongside its value from the map. 
+What's occurring here is that when we use our mixin we'll pass in two properties, the first being the map we want to iterate over and the second being the property to which our utility classes will apply. We iterate over each key and value pair within the map and using a [quoted string](https://sass-lang.com/documentation/interpolation#quoted-strings) we can then define the property we want to be affected in our class alongside its value from the map.
 
 Here's the mixin in action in a use case where we'd want to create a series of classes that affect the `gap` property of a flex container:
 
@@ -52,15 +52,15 @@ When used like this our mixin would yield a series of classes in CSS:
 
 ```css
 .spacing-sm {
-    gap: .5rem;
+  gap: 0.5rem;
 }
 
 .spacing-md {
-    gap: 1rem;
+  gap: 1rem;
 }
 
 .spacing-lg {
-    gap: 2rem;
+  gap: 2rem;
 }
 ```
 
@@ -92,7 +92,7 @@ With our equation defined let's look at how we might define it as a reusable fun
 }
 ```
 
-What we're doing here is we are defining a function with a single parameter of a color token of any type (plain string, hex, HSL, etc.). Sass has a [built-in module](https://sass-lang.com/documentation/modules/color) for various color operations that we can also make use of to extract the red, green, and blue values from the input color. Once we've extracted the values from our input color all we then need to do then is apply our equation and use an `if-else` statement to return the proper color.  
+What we're doing here is we are defining a function with a single parameter of a color token of any type (plain string, hex, HSL, etc.). Sass has a [built-in module](https://sass-lang.com/documentation/modules/color) for various color operations that we can also make use of to extract the red, green, and blue values from the input color. Once we've extracted the values from our input color all we then need to do then is apply our equation and use an `if-else` statement to return the proper color.
 
 A possible use case of this function in action could look like so:
 
@@ -100,8 +100,8 @@ A possible use case of this function in action could look like so:
 $bg: red;
 
 .header {
-    background-color: $bg;
-    color: calc-compliment($bg);
+  background-color: $bg;
+  color: calc-compliment($bg);
 }
 ```
 
@@ -140,7 +140,7 @@ With your breakpoints defined let's now create a mixin that will create our medi
       @content;
     }
   } @else {
-    @warn "Breakpoint `#{$breakpoint}` does not exist"
+    @warn "Breakpoint `#{$breakpoint}` does not exist";
   }
 }
 ```
@@ -151,10 +151,8 @@ And that's all there is to it. Now we can just continually use this mixin as a r
 
 ```scss
 @include apply-lesser-than('sm') {
-    .your-class {
-        // styling here
-    }
+  .your-class {
+    // styling here
+  }
 }
 ```
-
-

@@ -1,7 +1,7 @@
 ---
 desc: 'Simple way to create a font subset for emojis'
-tags: ["python", "fonts"]
-created: 4/08/2023
+tags: ['python', 'fonts']
+created: 2023-04-08
 ---
 
 # Culling Emojis From Font File
@@ -10,11 +10,11 @@ Font files that contain emojis can be extremely large depending on how they're e
 
 One possible solution to this is instead to use SVGs or some form of image files to represent the emojis. This approach makes using emojis inline a bit harder and more tedious and can make the replacement of the emoji set later on a nuisance.
 
-So let's instead just take a font file containing emojis and create a new one containing only the glyphs we want. That way we can just use the emojis as text anywhere on our site. 
+So let's instead just take a font file containing emojis and create a new one containing only the glyphs we want. That way we can just use the emojis as text anywhere on our site.
 
 ## Using the command line
 
-To create a font file that's a subset I opted to use [fonttools](https://fonttools.readthedocs.io/en/latest/index.html) which allows us to do this both via the command line as well as in our script if we need some flexibility. 
+To create a font file that's a subset I opted to use [fonttools](https://fonttools.readthedocs.io/en/latest/index.html) which allows us to do this both via the command line as well as in our script if we need some flexibility.
 
 First, you'll need to install the package using `pip` via:
 
@@ -91,4 +91,3 @@ python script.py [font_path] 🗓⏰📟☎💻🖱⌨💾💿📺📷...
 ```
 
 This script is pretty bare bones but does have some nice stuff like `argparse` and is expandable if you'd like to instead parse a directory of fonts and cull all the same glyphs from each of them. Also, I opted to use some unneeded items like the `attrgetter` just because I like its similarity to object destructuring in JavaScript. The above script also has the option to force the newly created subset font to be `woff2` encoded so Lighthouse won't complain.
-

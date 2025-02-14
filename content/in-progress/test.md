@@ -1,7 +1,7 @@
 ---
 desc: 'This is a test page'
-tags: ["js", "math"]
-created: 2/1/2025
+tags: ['js', 'math']
+created: 2025-02-01
 ---
 
 # This is a test page
@@ -22,12 +22,11 @@ Here we will test various MD features
 #### Nested items
 
 - One
-   - Two
+  - Two
 - Three
-   - Four
-   - Five
-      - Six
-
+  - Four
+  - Five
+    - Six
 
 ### Ordered
 
@@ -43,19 +42,19 @@ Here we will test various MD features
 1. One
    1. Two
    2. Three
-4. Four
+2. Four
    1. Five
 
 ## Tables
 
 | Test | Test |
 | ---- | ---- |
-| test | test |
+| test | asdf |
 
 ## Code Blocks
 
 ```ts
-const arr = [1,2,3,4,5];
+const arr = [1, 2, 3, 4, 5];
 
 arr.forEach((i) => {
   console.log(i);

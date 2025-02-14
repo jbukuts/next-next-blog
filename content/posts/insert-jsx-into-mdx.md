@@ -1,12 +1,12 @@
 ---
 desc: 'How to programmatically insert a JSX element into your MDX at build time'
 tags: ['js', 'mdx']
-created: '4-24-2023'
+created: 2023-04-24
 ---
 
 # Inserting JSX Into MDX
 
-MDX is a wonderful extension of Markdown as a whole. If you've never used it before the main selling point is the ability to write and insert JSX syntax within your Markdown content. This is extremely useful as it allows the use of interactive content between your otherwise static Markdown. 
+MDX is a wonderful extension of Markdown as a whole. If you've never used it before the main selling point is the ability to write and insert JSX syntax within your Markdown content. This is extremely useful as it allows the use of interactive content between your otherwise static Markdown.
 
 ## Integrate JSX the standard way
 
@@ -22,17 +22,17 @@ Some info on the component
 <MyComponent/>
 ```
 
-Very simple indeed. And depending on how you integrate the MDX content you can dynamically define which components are consumed. For more on that, I'd recommend reading the documentation on [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) or [gatsby-plugin-mdx](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/) if you'd like integration for Next.js or Gatsby respectively. 
+Very simple indeed. And depending on how you integrate the MDX content you can dynamically define which components are consumed. For more on that, I'd recommend reading the documentation on [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) or [gatsby-plugin-mdx](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/) if you'd like integration for Next.js or Gatsby respectively.
 
 ## Programmatic insertion of an element
 
-However, let's look at a use case where we have some element we want in our MDX that shows up repeatedly. A good example of this is the bar at the top of this page that contains the tag and date information. We could just insert this at the top of every one of our MDX documents but that's a relatively ugly approach if we wanted to someday remove it as we'd have to edit the documents themselves again. 
+However, let's look at a use case where we have some element we want in our MDX that shows up repeatedly. A good example of this is the bar at the top of this page that contains the tag and date information. We could just insert this at the top of every one of our MDX documents but that's a relatively ugly approach if we wanted to someday remove it as we'd have to edit the documents themselves again.
 
 Let's think instead about how to programmatically insert an element into the content itself when it's being sourced and transformed.
 
-For this, I'll assume you have some background on how Markdown is usually transformed into HTML or, in this case, JSX. The standard procedure is to use a parser such as `remark` to tokenize the raw Markdown into an abstract syntax tree (AST) and then compile it into its final form as HTML. 
+For this, I'll assume you have some background on how Markdown is usually transformed into HTML or, in this case, JSX. The standard procedure is to use a parser such as `remark` to tokenize the raw Markdown into an abstract syntax tree (AST) and then compile it into its final form as HTML.
 
-These syntax trees usually follow the [unist spec](https://github.com/syntax-tree/unist) and for Markdown and HTML, they follow the [Markdown Abstract Syntax Tree](https://github.com/syntax-tree/mdast) (MDAST) and [Hypertext Abstract Syntax Tree](https://github.com/syntax-tree/hast) (HAST) specs respectively. 
+These syntax trees usually follow the [unist spec](https://github.com/syntax-tree/unist) and for Markdown and HTML, they follow the [Markdown Abstract Syntax Tree](https://github.com/syntax-tree/mdast) (MDAST) and [Hypertext Abstract Syntax Tree](https://github.com/syntax-tree/hast) (HAST) specs respectively.
 
 That's a very short explanation of the process. So if you'd like to get a bit more familiar with the topic here's some helpful reading to get you started.
 
@@ -51,8 +51,7 @@ Transform: Hyperscript plugins applied to AST
 Transpile: MDXHAST => JSX
 ```
 
-It's these transformation phases that will allow us to insert an element into the static content. Essentially when the content is represented as an AST we have free reign to insert new nodes as long as they follow the spec. 
-
+It's these transformation phases that will allow us to insert an element into the static content. Essentially when the content is represented as an AST we have free reign to insert new nodes as long as they follow the spec.
 
 ### The custom plugin
 
@@ -100,7 +99,7 @@ In this case, I'm using a `unist` [utility](https://github.com/syntax-tree/unist
 
 We use it here since we're trying to find an occurrence of an H1 tag in the tree as the checker function looks at a node and returns true if it's both a heading element with a depth of 1. We also return `EXIT` at the end of the visitor function so that we can exit parsing the tree early.
 
-Since the edits we made to the syntax tree have been in-place inside the `visit` function all we need to return at the end is the original tree object itself. 
+Since the edits we made to the syntax tree have been in-place inside the `visit` function all we need to return at the end is the original tree object itself.
 
 ### Consuming the plugin
 
@@ -122,13 +121,13 @@ function processContent(rawMarkdown) {
       rehypePlugins: [],
       format: 'mdx'
     },
-      scope: { timeToRead, tags, date },
-      parseFrontmatter: false
+    scope: { timeToRead, tags, date },
+    parseFrontmatter: false
   });
 }
 ```
 
-Through the `serialize` function exported from `next-mdx-remote` we can simply pass in our raw content alongside any plugins we want to use when processing the content. Notice also the use of the `scope` option. This is what allows us to define the props to be consumed by the component we used above. 
+Through the `serialize` function exported from `next-mdx-remote` we can simply pass in our raw content alongside any plugins we want to use when processing the content. Notice also the use of the `scope` option. This is what allows us to define the props to be consumed by the component we used above.
 
 As for how this raw content is consumed on a page we can create a simple component that just passes the return value of this function into the wrapper supplied by the package:
 
@@ -136,7 +135,7 @@ As for how this raw content is consumed on a page we can create a simple compone
 import { MDXRemote } from 'next-mdx-remote';
 
 const components = {
-    ArticleTags
+  ArticleTags
 };
 
 const Content = ({ processedContent }) => {
@@ -150,4 +149,4 @@ const Content = ({ processedContent }) => {
 export default Content;
 ```
 
-And that's about it. 
+And that's about it.
