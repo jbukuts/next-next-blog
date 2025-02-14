@@ -13,10 +13,10 @@ Features:
 - [x] SEO Metadata (OpenGraph/Twitter)
 - [x] RSS feed generation (via `feed`)
 - [x] Sitemap generation
-- [ ] Linting for MDX content 
 - [x] MDX support (via `next-mdx-remote`)
+- [x] Linting for MDX content (via `eslint-plugin-mdx`)
 - [x] Multiple themes (via `next-themes`)
-- [x] Text search (via `minisearch`)
+- [x] Text search of posts (via `minisearch`)
 
 ## Getting Started
 
@@ -26,11 +26,8 @@ First, run the development server:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 with your browser to see the result.
 
 ## Deployment
 
 This site is designed to be statically hosted and as such exports static assets at build. This can be disabled in the `next.config.ts` file.
-
-
-

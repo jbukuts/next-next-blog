@@ -16,6 +16,8 @@ export default async function Home() {
           width={200}
           height={200}
           alt='me'
+          fetchPriority='high'
+          loading='eager'
           className='profile-image border-primary col-span-2 col-start-1 mx-auto size-[125px] rounded-md border-3 object-cover [image-rendering:pixelated] md:col-span-1 md:row-span-2 md:mx-0 md:size-[175px]'
         />
         <Headings.H2 className='col-span-2 col-start-1 text-center md:col-span-1 md:col-start-2 md:row-start-1 md:text-left'>

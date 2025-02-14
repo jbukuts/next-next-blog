@@ -21,7 +21,7 @@ const eslintConfig = [
       'prettier/prettier': ['error', { endOfLine: 'auto' }]
     }
   },
-  { files: ['*.md', '*.mdx'], ...mdx.flat }
+  { files: ['*.md', '*.mdx'], ignores: ['README.md'], ...mdx.flat }
 ] satisfies Linter.Config[];
 
 export default eslintConfig;

@@ -64,6 +64,8 @@ export default function Header() {
                 width={200}
                 height={100}
                 className='w-[150px] sm:w-[200px]'
+                fetchPriority='high'
+                loading='eager'
                 alt={`${firstName} ${lastName}`}
               />
             </NextLink>

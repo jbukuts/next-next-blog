@@ -88,6 +88,8 @@ export default function Footer() {
               width={100}
               height={100}
               alt='me'
+              fetchPriority='low'
+              loading='lazy'
               className='profile-image border-primary size-[100px] rounded-md border-2 object-cover [image-rendering:pixelated]'
             />
             <div className='text-center md:text-left'>
