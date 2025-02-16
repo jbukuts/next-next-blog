@@ -16,6 +16,8 @@ import { type Metadata } from 'next';
 import siteConfig from '../../../../site.config';
 import { BlogPosting, WithContext } from 'schema-dts';
 import { baseMetadata } from '#/lib/create-metadata';
+import Code from '#/components/ui/code';
+import Blockquote from '#/components/ui/blockquote';
 
 const { profile } = siteConfig;
 
@@ -115,6 +117,8 @@ export default async function PostPage({
       thead: TableHead,
       td: TableData,
       th: TableData,
+      code: Code,
+      blockquote: Blockquote,
       FlexContainer: ({ children }: { children: React.ReactNode }) => (
         <div className='flex flex-col items-center gap-5 md:flex-row md:justify-center'>
           {children}
@@ -130,7 +134,7 @@ export default async function PostPage({
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <article className='prose-headings:border-b-2 prose-h1:border-none prose-headings:border-accent prose-headings:[&>a]:hover:drop-shadow-none prose-headings:[&>a]:text-foreground prose-headings:[&>a]:no-underline prose-headings:[&>a]:hover:after:content-["#"] [&_pre]:border-accent space-y-6 [&_pre]:overflow-x-auto [&_pre]:rounded-md [&_pre]:border-2 [&_pre]:py-4 [&_pre]:text-sm [&_pre_[data-line]]:px-4 [&_section]:space-y-6'>
+        <article className='prose-headings:[&>a]:hover:drop-shadow-none prose-headings:[&>a]:text-foreground prose-headings:[&>a]:no-underline prose-headings:[&>a]:hover:after:content-["#"] prose-headings:[&>a]:hover:after:text-accent [&_pre]:border-accent space-y-8 tracking-tighter [&_pre]:overflow-x-auto [&_pre]:rounded-md [&_pre]:border-2 [&_pre]:py-4 [&_pre]:text-sm [&_pre_[data-line]]:px-4 [&_section]:space-y-8'>
           <Headings.H1 style={{ margin: 0 }}>{post.title}</Headings.H1>
           <p className='mb-5 font-serif'>
             <time dateTime={formatDate(post.created, 'yyyy-MM-dd')}>
@@ -151,9 +155,7 @@ export default async function PostPage({
                 key={p.slug}
                 href={p.slug}
                 className='group border-accent flex flex-col rounded-lg border p-4 leading-tight'>
-                <span className='group-hover:underline'>
-                  {i > idx ? 'Previous' : 'Next'} Post
-                </span>
+                <span>{i > idx ? 'Previous' : 'Next'} Post</span>
                 <span className='text-accent text-sm group-hover:underline'>
                   {p.title}
                 </span>

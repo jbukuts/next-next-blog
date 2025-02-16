@@ -10,7 +10,7 @@ import siteConfig from '../../site.config';
 export default async function Home() {
   return (
     <CenterWrapper>
-      <aside className='mb-10 grid grid-cols-[auto_1fr] gap-3 md:gap-y-0'>
+      <aside className='mb-10 grid grid-cols-[auto_1fr] gap-3 tracking-tighter md:gap-y-0'>
         <Image
           src={'/me.webp'}
           width={200}
@@ -18,12 +18,12 @@ export default async function Home() {
           alt='me'
           fetchPriority='high'
           loading='eager'
-          className='profile-image border-primary col-span-2 col-start-1 mx-auto size-[125px] rounded-md border-3 object-cover [image-rendering:pixelated] md:col-span-1 md:row-span-2 md:mx-0 md:size-[175px]'
+          className='profile-image border-primary col-span-2 col-start-1 size-[125px] rounded-md border-3 object-cover [image-rendering:pixelated] md:col-span-1 md:row-span-2 md:size-[175px]'
         />
-        <Headings.H2 className='col-span-2 col-start-1 text-center md:col-span-1 md:col-start-2 md:row-start-1 md:text-left'>
+        <Headings.H2 className='col-span-2 col-start-1 md:col-span-1 md:col-start-2 md:row-start-1'>
           Hi, I&apos;m Jake
         </Headings.H2>
-        <p className='col-span-2 col-start-1 space-y-2 text-center md:col-span-1 md:col-start-2 md:text-left'>
+        <p className='col-span-2 col-start-1 space-y-2 md:col-span-1 md:col-start-2'>
           {siteConfig.profile.bio}
         </p>
       </aside>
@@ -34,7 +34,7 @@ export default async function Home() {
           return (
             <article key={idx}>
               <header>
-                <Headings.H2 className='text-3xl tracking-tight'>
+                <Headings.H2 className='text-3xl tracking-tighter'>
                   <Link
                     href={`/posts/${slug}`}
                     className='text-foreground no-underline'>
